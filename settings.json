@@ -1,0 +1,267 @@
+{
+    // ============================================
+    // 1. WORKBENCH & UI
+    // ============================================
+    "workbench.colorTheme": "Monokai Pro (Filter Octagon)",
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.startupEditor": "none",
+    "workbench.sideBar.location": "right",
+    "workbench.activityBar.location": "hidden",
+    "workbench.editor.showTabs": "multiple",
+    "workbench.editor.enablePreviewFromQuickOpen": false,
+    "workbench.tree.indent": 15,
+    "workbench.tree.renderIndentGuides": "none",
+    "workbench.tree.enableStickyScroll": false,
+    "workbench.tips.enabled": false,
+    "breadcrumbs.enabled": false,
+    "window.zoomLevel": 1,
+    "window.newWindowDimensions": "inherit",
+    "workbench.colorCustomizations": {
+        "tab.activeBackground": "#05063890",
+        "editorCursor.foreground": "#3BC1A8",
+    },
+
+    // ============================================
+    // 2. EDITOR: CORE & FONT
+    // ============================================
+    "editor.fontFamily": "Geist Mono, JetBrains Mono, Fira Code",
+    "editor.fontSize": 16,
+    "editor.fontWeight": "400",
+    "editor.fontLigatures": true,
+    "editor.lineHeight": 32,
+    "editor.padding.top": 16,
+    "editor.smoothScrolling": true,
+    "editor.mouseWheelZoom": true,
+    "editor.tabSize": 4,
+    "editor.detectIndentation": false,
+    "editor.wordWrap": "on", // Wraps text at the column specified below
+    "editor.wordWrapColumn": 120,
+    "editor.multiCursorModifier": "ctrlCmd",
+    "editor.linkedEditing": true,
+    "editor.emptySelectionClipboard": false,
+    "editor.copyWithSyntaxHighlighting": false,
+    "editor.accessibilitySupport": "off",
+
+    // ============================================
+    // 3. EDITOR: CURSOR & HIGHLIGHTING
+    // (Distraction-Free Configuration)
+    // ============================================
+    "editor.cursorStyle": "underline",
+    "editor.cursorBlinking": "solid",
+    "editor.minimap.enabled": false,
+    "editor.selectionHighlight": false,
+    "editor.occurrencesHighlight": "off",
+    "editor.renderLineHighlight": "none",
+    "editor.matchBrackets": "never",
+    "editor.overviewRulerBorder": false,
+    "editor.hideCursorInOverviewRuler": true,
+    "editor.renderWhitespace": "none",
+    "editor.renderControlCharacters": false,
+    "editor.stickyScroll.enabled": false,
+    "problems.decorations.enabled": false,
+    "scm.diffDecorations": "none",
+
+    // ============================================
+    // 4. EDITOR: INTELLISENSE & CODE ACTIONS
+    // ============================================
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": false,
+    "editor.codeActionsOnSave": {
+        "source.fixAll": "explicit",
+        "source.organizeImports": "explicit",
+    },
+    "editor.snippetSuggestions": "top",
+    "editor.inlineSuggest.suppressSuggestions": true,
+    "editor.suggestFontSize": 16,
+    "editor.suggestLineHeight": 30,
+    "editor.hover.enabled": "on",
+    "editor.hover.delay": 1000,
+    "editor.lightbulb.enabled": "on",
+    "editor.guides.indentation": true,
+    "editor.lineNumbers": "on",
+    "editor.gotoLocation.multipleReferences": "goto",
+    "editor.gotoLocation.multipleDefinitions": "goto",
+    "editor.gotoLocation.multipleDeclarations": "goto",
+    "editor.gotoLocation.multipleImplementations": "goto",
+    "editor.gotoLocation.multipleTypeDefinitions": "goto",
+
+    // ============================================
+    // 5. FILES, EXPLORER & SEARCH
+    // ============================================
+    "files.autoSave": "onWindowChange",
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "files.associations": {
+        ".php_cs": "php",
+        ".php_cs.dist": "php",
+    },
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+    "explorer.sortOrder": "type",
+    "security.workspace.trust.untrustedFiles": "open",
+    // Exclude common generated/vendor folders from search results
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/vendor": true,
+        "**/public": true,
+        "**/dist": true,
+        "**/build": true,
+        "**/out": true,
+        "storage": true,
+        "**/bower_components": true,
+        "**/.git": true,
+        "**/composer.lock": true,
+        "**/package-lock.json": true,
+        "**/.next": true,
+        "**/.nuxt": true,
+        "**/_ide_helper.php": true,
+        ".phpunit.result.cache": true,
+    },
+
+    // ============================================
+    // 6. SOURCE CONTROL & DIFF
+    // ============================================
+    "git.autofetch": true,
+    "git.confirmSync": false,
+    "git.decorations.enabled": false,
+    "diffEditor.renderSideBySide": false,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "diffEditor.wordWrap": "on",
+
+    // ============================================
+    // 7. TERMINAL
+    // ============================================
+    "terminal.integrated.fontSize": 14,
+    "terminal.integrated.fontFamily": "Cascadia Mono",
+    "terminal.integrated.fontWeight": "400",
+    "terminal.integrated.lineHeight": 1,
+    "terminal.integrated.tabs.enabled": true,
+
+    // ============================================
+    // 8. LANGUAGE SPECIFIC SETTINGS
+    // ============================================
+    // --- JS / TS ---
+    // The global "formatOnSave" and "defaultFormatter" apply here.
+    // No need for separate [javascript], [typescript] blocks.
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    // --- Other Languages ---
+    "[css]": {
+        "editor.suggest.insertMode": "insert",
+        "cSpell.fixSpellingWithRenameProvider": false,
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+    },
+    "[html]": {
+        "editor.defaultFormatter": "apility.beautify-blade",
+        "editor.formatOnSave": true,
+    },
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features",
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+    },
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter",
+    },
+    "[vue]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+    },
+    "[tailwindcss]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+    },
+
+    // ============================================
+    // 9. EXTENSION CONFIGURATION
+    // ============================================
+    // --- AI Assistants (Copilot, etc.) ---
+    "github.copilot.nextEditSuggestions.enabled": true,
+    "editor.aiStats.enabled": false,
+    "chat.commandCenter.enabled": false,
+    "chat.editor.wordWrap": "on",
+    "chat.viewSessions.orientation": "stacked",
+    // --- Prettier ---
+    "prettier.tabWidth": 4,
+    "prettier.singleQuote": false,
+    // --- Tailwind CSS ---
+    "tailwindCSS.includeLanguages": {
+        "plaintext": "html",
+        "blade": "html",
+    },
+    // --- Emmet ---
+    "emmet.includeLanguages": {
+        "blade": "html",
+        "vue-html": "html",
+        "vue": "html",
+        "react": "html",
+        "javascript": "html",
+    },
+
+    // --- Material Icon Theme ---
+    "material-icon-theme.files.color": "#42a5f5",
+    "material-icon-theme.folders.color": "#42a5f5",
+    "material-icon-theme.rootFolders.color": "#26a69a",
+    "material-icon-theme.saturation": 1,
+    "material-icon-theme.hidesExplorerArrows": true,
+    // --- Bracket Pair Colorizer ---
+    "editor.bracketPairColorization.enabled": true,
+    "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+    // --- CodeSnap (Screenshot Tool) ---
+    "codesnap.containerPadding": "8em",
+    "codesnap.boxShadow": "rgba(0, 0, 0, 0.55) 0px 12px 24px",
+    "codesnap.backgroundColor": "#FFC540",
+    "codesnap.showLineNumbers": false,
+    "codesnap.roundedCorners": true,
+    // --- Spell Check ---
+    "cSpell.userWords": [
+        "apility",
+        "esbenp",
+        "Fira",
+        "Geist",
+        "Nomic",
+        "ollama",
+        "Omnifood",
+        "Qwen",
+        "Roboto",
+        "Vijay",
+    ],
+    // --- Other Extensions ---
+    "vetur.format.options.tabSize": 4,
+    "liveServer.settings.donotShowInfoMsg": true,
+    "html-css-class-completion.enableEmmetSupport": true,
+    "notebook.output.wordWrap": true,
+
+    // ============================================
+    // 10. CUSTOM APPEARANCE
+    // ============================================
+    // --- Token Colors (Syntax Highlighting) ---
+    "editor.tokenColorCustomizations": {
+        "textMateRules": [
+            {
+                "scope": [
+                    "comment",
+                    "keyword",
+                    "variable.language",
+                    "entity.other.attribute-name.html",
+                    "entity.other.attribute-name",
+                    "keyword.control",
+                    "storage.type",
+                ],
+                "settings": {
+                    "fontStyle": "", // Disables italics for specified tokens
+                },
+            },
+        ],
+    },
+    // --- Custom CSS & JS Loader ---
+    "vscode_custom_css.imports": [
+        "file:///C:\\Users\\admin\\AppData\\Roaming\\Code\\User\\custom-vs-code.css",
+        "file:///C:\\Users\\admin\\AppData\\Roaming\\Code\\User\\vs-code-script.js",
+    ],
+
+    "todohighlight.isEnable": true,
+    "todohighlight.isCaseSensitive": true,
+    "workbench.editor.enablePreview": false,
+}
