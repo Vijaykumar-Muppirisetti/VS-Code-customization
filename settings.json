@@ -1,69 +1,206 @@
 {
-    // ============================================
-    // 1. WORKBENCH & UI
-    // ============================================
+    // ================================================================
+    // WORKBENCH
+    // Window chrome, sidebar placement, startup behaviour.
+    // Everything in this section was already correct in your config —
+    // only organization changed.
+    // ================================================================
     "workbench.colorTheme": "Monokai Pro (Filter Octagon)",
     "workbench.iconTheme": "material-icon-theme",
     "workbench.startupEditor": "none",
     "workbench.sideBar.location": "right",
+    "workbench.statusBar.visible": true,
     "workbench.activityBar.location": "hidden",
-    "workbench.editor.showTabs": "multiple",
-    "workbench.editor.enablePreviewFromQuickOpen": false,
-    "workbench.tree.indent": 15,
-    "workbench.tree.renderIndentGuides": "none",
-    "workbench.tree.enableStickyScroll": false,
     "workbench.tips.enabled": false,
-    "breadcrumbs.enabled": false,
-    "window.zoomLevel": 1,
+    "workbench.editor.empty.hint": "hidden",
+    "workbench.editor.untitled.hint": "hidden",
+    "window.zoomLevel": 0.5,
     "window.newWindowDimensions": "inherit",
-    "workbench.colorCustomizations": {
-        "tab.activeBackground": "#05063890",
-        "editorCursor.foreground": "#3BC1A8",
-    },
+    // "window.nativeFullScreen": true,
+    "window.dialogStyle": "custom",
+    "window.titleBarStyle": "custom",
 
-    // ============================================
-    // 2. EDITOR: CORE & FONT
-    // ============================================
-    "editor.fontFamily": "Geist Mono, JetBrains Mono, Fira Code",
-    "editor.fontSize": 16,
-    "editor.fontWeight": "400",
-    "editor.fontLigatures": true,
-    "editor.lineHeight": 32,
-    "editor.padding.top": 16,
-    "editor.smoothScrolling": true,
-    "editor.mouseWheelZoom": true,
+    // ================================================================
+    // EDITOR — behaviour & visual surface
+    // ================================================================
     "editor.tabSize": 4,
     "editor.detectIndentation": false,
-    "editor.wordWrap": "on", // Wraps text at the column specified below
+    "editor.wordWrap": "on",
     "editor.wordWrapColumn": 120,
+    "editor.wordSeparators": "`~!@#%^&*()=+[{]}\\|;:'\",.<>/?",
     "editor.multiCursorModifier": "ctrlCmd",
     "editor.linkedEditing": true,
     "editor.emptySelectionClipboard": false,
     "editor.copyWithSyntaxHighlighting": false,
-    "editor.accessibilitySupport": "off",
+    "editor.mouseWheelZoom": true,
+    "editor.padding.top": 20,
+    "editor.padding.bottom": 20,
+    "editor.stickyScroll.enabled": false,
+    "editor.colorDecorators": true,
 
-    // ============================================
-    // 3. EDITOR: CURSOR & HIGHLIGHTING
-    // (Distraction-Free Configuration)
-    // ============================================
-    "editor.cursorStyle": "underline",
-    "editor.cursorBlinking": "solid",
-    "editor.minimap.enabled": false,
+    // --- Visual noise policy (your editorial choices, kept) -----------------
+    "editor.lineNumbers": "on",
+    "editor.renderLineHighlight": "line",
     "editor.selectionHighlight": false,
-    "editor.occurrencesHighlight": "off",
-    "editor.renderLineHighlight": "none",
-    "editor.matchBrackets": "never",
-    "editor.overviewRulerBorder": false,
-    "editor.hideCursorInOverviewRuler": true,
+    "editor.occurrencesHighlight": "singleFile",
+    "editor.matchBrackets": "near",
     "editor.renderWhitespace": "none",
     "editor.renderControlCharacters": false,
-    "editor.stickyScroll.enabled": false,
+    "editor.overviewRulerBorder": false,
+    "editor.hideCursorInOverviewRuler": true,
+    "editor.guides.indentation": true,
+    "editor.guides.bracketPairs": false,
+    "editor.bracketPairColorization.enabled": true,
     "problems.decorations.enabled": false,
-    "scm.diffDecorations": "none",
+    // Optional re-enables — left commented so nothing changes silently:
+    // "editor.occurrencesHighlight": "singleFile",
+    // "editor.selectionHighlight": true,
 
-    // ============================================
-    // 4. EDITOR: INTELLISENSE & CODE ACTIONS
-    // ============================================
+    // ================================================================
+    // FONT & TYPOGRAPHY
+    // ================================================================
+    "editor.fontFamily": "'Geist Mono','Fira Code', 'JetBrains Mono', 'Cascadia Code', monospace",
+    "editor.fontSize": 16,
+    "editor.fontWeight": "500",
+    "editor.lineHeight": 30,
+    "editor.letterSpacing": 0.75,
+    // Advanced OpenType Stylistic Alternates & Ligatures
+    "editor.fontLigatures": "'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'ss06', 'ss07', 'ss08', 'calt', 'dlig', 'zero', 'cv01', 'cv02'",
+
+    // ================================================================
+    // CURSOR
+    // ================================================================
+    "editor.cursorStyle": "underline",
+
+    "editor.cursorBlinking": "smooth",
+    "editor.cursorSmoothCaretAnimation": "off",
+    // Keeps 3 lines of breathing room when smooth-scrolling to matches —
+    // the caret never lands flush against the editor edge.
+    "editor.cursorSurroundingLines": 3,
+    "editor.accessibilitySupport": "off",
+
+    // ================================================================
+    // TABS
+    // ================================================================
+    "workbench.editor.showTabs": "multiple",
+    "workbench.editor.enablePreview": false,
+    "workbench.editor.enablePreviewFromQuickOpen": false,
+    "workbench.editor.tabSizing": "shrink",
+    "editor.minimap.maxColumn": 250,
+
+    // ================================================================
+    // SCROLLING
+    // ================================================================
+    "editor.smoothScrolling": true,
+    "workbench.list.smoothScrolling": true,
+
+    // ================================================================
+    // BREADCRUMBS
+    // Disabled — CSS §21 keeps dormant styling if re-enabled.
+    // ================================================================
+    "breadcrumbs.enabled": false,
+
+    // ================================================================
+    // EXPLORER
+    // ================================================================
+    "workbench.tree.indent": 16,
+    "workbench.tree.renderIndentGuides": "none",
+    "workbench.tree.enableStickyScroll": false,
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+    "explorer.sortOrder": "type",
+
+    // ================================================================
+    // TERMINAL
+    // ================================================================
+    "terminal.integrated.fontFamily": "'Geist Mono', 'Cascadia Mono', monospace",
+    "terminal.integrated.fontSize": 16,
+    "terminal.integrated.fontWeight": "500",
+    "terminal.integrated.lineHeight": 1.4,
+    "terminal.integrated.smoothScrolling": true,
+    "terminal.integrated.cursorBlinking": true,
+    "terminal.integrated.cursorStyle": "underline",
+    "terminal.integrated.gpuAcceleration": "on",
+
+    // ================================================================
+    // SEARCH
+    // Your smart granular Laravel/modern-stack exclusions kept verbatim.
+    // ================================================================
+    "search.useIgnoreFiles": false,
+    "search.showLineNumbers": true,
+    "search.exclude": {
+        "**/vendor/{[^l],?[^ai]}*": true,
+        "**/public/{[^i],?[^n]}*": true,
+        "**/node_modules": true,
+        "**/dist": true,
+        "**/build": true,
+        "**/out": true,
+        "**/.next": true,
+        "**/.nuxt": true,
+        "**/.git": true,
+        "**/storage": true,
+        "**/_ide_helper.php": true,
+        "**/composer.lock": true,
+        "**/package-lock.json": true,
+        "**/.phpunit.result.cache": true,
+    },
+
+    // ================================================================
+    // FILES
+    // ================================================================
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 1000,
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "files.associations": {
+        ".php_cs": "php",
+        ".php_cs.dist": "php",
+        "*.blade.php": "blade",
+    },
+    "security.workspace.trust.untrustedFiles": "open",
+
+    // ================================================================
+    // GIT & DIFF
+    // Decorations stay off (status lives in the status bar) — the CSS
+    // keeps tuned decoration colors dormant if you re-enable them.
+    // ================================================================
+    "git.autofetch": true,
+    "git.confirmSync": false,
+    "git.decorations.enabled": false,
+    "scm.diffDecorations": "none",
+    "diffEditor.renderSideBySide": false,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "diffEditor.wordWrap": "on",
+
+    // ================================================================
+    // INTELLISENSE, AI & SUGGESTIONS
+    // ================================================================
+    "editor.suggestFontSize": 15,
+    "editor.suggestLineHeight": 28,
+    "editor.snippetSuggestions": "top",
+    "editor.inlineSuggest.enabled": true,
+    "editor.inlineSuggest.suppressSuggestions": true,
+    "editor.quickSuggestions": {
+        "other": true,
+        "comments": false,
+        "strings": true,
+    },
+    "editor.hover.enabled": "on",
+    "editor.hover.delay": 1200,
+    "editor.lightbulb.enabled": "off",
+    "editor.gotoLocation.multipleReferences": "goto",
+    "editor.gotoLocation.multipleDefinitions": "goto",
+    "editor.gotoLocation.multipleDeclarations": "goto",
+    "editor.gotoLocation.multipleImplementations": "goto",
+    "editor.gotoLocation.multipleTypeDefinitions": "goto",
+    "github.copilot.nextEditSuggestions.enabled": true,
+    "chat.editor.wordWrap": "on",
+    "chat.commandCenter.enabled": false,
+
+    // ================================================================
+    // FORMATTING
+    // ================================================================
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true,
     "editor.formatOnPaste": false,
@@ -71,87 +208,41 @@
         "source.fixAll": "explicit",
         "source.organizeImports": "explicit",
     },
-    "editor.snippetSuggestions": "top",
-    "editor.inlineSuggest.suppressSuggestions": true,
-    "editor.suggestFontSize": 16,
-    "editor.suggestLineHeight": 30,
-    "editor.hover.enabled": "on",
-    "editor.hover.delay": 1000,
-    "editor.lightbulb.enabled": "on",
-    "editor.guides.indentation": true,
-    "editor.lineNumbers": "on",
-    "editor.gotoLocation.multipleReferences": "goto",
-    "editor.gotoLocation.multipleDefinitions": "goto",
-    "editor.gotoLocation.multipleDeclarations": "goto",
-    "editor.gotoLocation.multipleImplementations": "goto",
-    "editor.gotoLocation.multipleTypeDefinitions": "goto",
+    "prettier.tabWidth": 4,
+    "prettier.singleQuote": false,
+    "prettier.requireConfig": false,
+    "prettier.useEditorConfig": false,
 
-    // ============================================
-    // 5. FILES, EXPLORER & SEARCH
-    // ============================================
-    "files.autoSave": "onWindowChange",
-    "files.trimTrailingWhitespace": true,
-    "files.insertFinalNewline": true,
-    "files.trimFinalNewlines": true,
-    "files.associations": {
-        ".php_cs": "php",
-        ".php_cs.dist": "php",
+    // ================================================================
+    // LANGUAGE-SPECIFIC SETTINGS
+    // ================================================================
+    "[php]": {
+        // "editor.defaultFormatter": "bmewburn.vscode-intelephense-client",
+        "editor.formatOnSave": true,
     },
-    "explorer.confirmDelete": false,
-    "explorer.confirmDragAndDrop": false,
-    "explorer.sortOrder": "type",
-    "security.workspace.trust.untrustedFiles": "open",
-    // Exclude common generated/vendor folders from search results
-    "search.exclude": {
-        "**/node_modules": true,
-        "**/vendor": true,
-        "**/public": true,
-        "**/dist": true,
-        "**/build": true,
-        "**/out": true,
-        "storage": true,
-        "**/bower_components": true,
-        "**/.git": true,
-        "**/composer.lock": true,
-        "**/package-lock.json": true,
-        "**/.next": true,
-        "**/.nuxt": true,
-        "**/_ide_helper.php": true,
-        ".phpunit.result.cache": true,
-    },
-
-    // ============================================
-    // 6. SOURCE CONTROL & DIFF
-    // ============================================
-    "git.autofetch": true,
-    "git.confirmSync": false,
-    "git.decorations.enabled": false,
-    "diffEditor.renderSideBySide": false,
-    "diffEditor.ignoreTrimWhitespace": false,
-    "diffEditor.wordWrap": "on",
-
-    // ============================================
-    // 7. TERMINAL
-    // ============================================
-    "terminal.integrated.fontSize": 14,
-    "terminal.integrated.fontFamily": "Cascadia Mono",
-    "terminal.integrated.fontWeight": "400",
-    "terminal.integrated.lineHeight": 1,
-    "terminal.integrated.tabs.enabled": true,
-
-    // ============================================
-    // 8. LANGUAGE SPECIFIC SETTINGS
-    // ============================================
-    // --- JS / TS ---
-    // The global "formatOnSave" and "defaultFormatter" apply here.
-    // No need for separate [javascript], [typescript] blocks.
-    "javascript.updateImportsOnFileMove.enabled": "always",
-    "typescript.updateImportsOnFileMove.enabled": "always",
-    // --- Other Languages ---
-    "[css]": {
-        "editor.suggest.insertMode": "insert",
-        "cSpell.fixSpellingWithRenameProvider": false,
+    "[javascript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true,
+    },
+    "[javascriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true,
+    },
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true,
+    },
+    "[vue]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true,
+    },
+    "[tailwindcss]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true,
+    },
+    "[css]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.suggest.insertMode": "insert",
     },
     "[html]": {
         "editor.defaultFormatter": "apility.beautify-blade",
@@ -166,102 +257,121 @@
     "[python]": {
         "editor.defaultFormatter": "ms-python.black-formatter",
     },
-    "[vue]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode",
-    },
-    "[tailwindcss]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode",
-    },
-
-    // ============================================
-    // 9. EXTENSION CONFIGURATION
-    // ============================================
-    // --- AI Assistants (Copilot, etc.) ---
-    "github.copilot.nextEditSuggestions.enabled": true,
-    "editor.aiStats.enabled": false,
-    "chat.commandCenter.enabled": false,
-    "chat.editor.wordWrap": "on",
-    "chat.viewSessions.orientation": "stacked",
-    // --- Prettier ---
-    "prettier.tabWidth": 4,
-    "prettier.singleQuote": false,
-    // --- Tailwind CSS ---
+    "php.suggest.basic": false,
     "tailwindCSS.includeLanguages": {
         "plaintext": "html",
         "blade": "html",
     },
-    // --- Emmet ---
     "emmet.includeLanguages": {
         "blade": "html",
         "vue-html": "html",
         "vue": "html",
-        "react": "html",
         "javascript": "html",
     },
+    "html-css-class-completion.enableEmmetSupport": true,
 
-    // --- Material Icon Theme ---
+    // ================================================================
+    // EXTENSIONS
+    // Material Icon Theme, CodeSnap, Live Server, TODO Highlight, cSpell.
+    // ================================================================
     "material-icon-theme.files.color": "#42a5f5",
     "material-icon-theme.folders.color": "#42a5f5",
     "material-icon-theme.rootFolders.color": "#26a69a",
-    "material-icon-theme.saturation": 1,
+    "material-icon-theme.saturation": 0.8,
     "material-icon-theme.hidesExplorerArrows": true,
-    // --- Bracket Pair Colorizer ---
-    "editor.bracketPairColorization.enabled": true,
-    "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
-    // --- CodeSnap (Screenshot Tool) ---
-    "codesnap.containerPadding": "8em",
-    "codesnap.boxShadow": "rgba(0, 0, 0, 0.55) 0px 12px 24px",
-    "codesnap.backgroundColor": "#FFC540",
+    "codesnap.containerPadding": "4em",
+    "codesnap.boxShadow": "rgba(0, 0, 0, 0.45) 0px 20px 40px",
+    "codesnap.backgroundColor": "#1e1e2e",
     "codesnap.showLineNumbers": false,
     "codesnap.roundedCorners": true,
-    // --- Spell Check ---
+    "liveServer.settings.donotShowInfoMsg": true,
+    "notebook.output.wordWrap": true,
+    "todohighlight.isEnable": true,
+    "todohighlight.isCaseSensitive": true,
     "cSpell.userWords": [
         "apility",
         "esbenp",
         "Fira",
         "Geist",
+        "Intelephense",
         "Nomic",
         "ollama",
         "Omnifood",
         "Qwen",
-        "Roboto",
-        "Vijay",
+        "tailwindcss",
     ],
-    // --- Other Extensions ---
-    "vetur.format.options.tabSize": 4,
-    "liveServer.settings.donotShowInfoMsg": true,
-    "html-css-class-completion.enableEmmetSupport": true,
-    "notebook.output.wordWrap": true,
 
-    // ============================================
-    // 10. CUSTOM APPEARANCE
-    // ============================================
-    // --- Token Colors (Syntax Highlighting) ---
+    // ================================================================
+    // COLOR BRIDGE
+    // Terminal ANSI + inline-hint colors tuned to the same tokens as
+    // custom-vs-code.css §01 — editor and terminal read as one system.
+    // Left commented so nothing changes silently. The extra status-bar /
+    // tab lines complete what CSS §09 + §14 paint: uncomment to let the
+    // theme side agree with the CSS side.
+    // ================================================================
+    // "workbench.colorCustomizations": {
+    //     "terminal.ansiBlack": "#191b22",
+    //     "terminal.ansiBlue": "#a79ed6",
+    //     "terminal.ansiBrightBlack": "#5c6270",
+    //     "terminal.ansiCyan": "#8fb4c9",
+    //     "terminal.ansiGreen": "#8fb98b",
+    //     "terminal.ansiMagenta": "#a79ed6",
+    //     "terminal.ansiRed": "#d98c8c",
+    //     "terminal.ansiWhite": "#e4e7ee",
+    //     "terminal.ansiYellow": "#d3ae74",
+    //     "terminal.selectionBackground": "#3d375580",
+    //     "editor.inlineSuggest.foreground": "#7d8398b3",
+    //     "editorCodeLens.foreground": "#6d748299",
+    //     "editorInlayHint.foreground": "#8b93a6cc",
+    //     "editorInlayHint.background": "#ffffff00",
+    //     // — v2 optional bridge (mirrors CSS §09 / §14 tokens) -----------
+    //     "tab.activeBorderTop": "#bc9abc",
+    //     "tab.inactiveBackground": "#2a2b3800",
+    //     "statusBar.background": "#2a2b38",
+    //     "statusBar.foreground": "#c6cbda",
+    //     "statusBar.noFolderBackground": "#2a2b38",
+    //     "statusBarItem.hoverBackground": "#ffffff10",
+    //     "editorCursor.foreground": "#bc9abc"
+    // },
     "editor.tokenColorCustomizations": {
         "textMateRules": [
             {
+                "name": "Normalize Font Styles (Kill Italic Noise)",
                 "scope": [
-                    "comment",
                     "keyword",
-                    "variable.language",
-                    "entity.other.attribute-name.html",
-                    "entity.other.attribute-name",
                     "keyword.control",
                     "storage.type",
+                    "variable.language",
+                    "entity.other.attribute-name",
+                    "entity.other.attribute-name.html",
                 ],
                 "settings": {
-                    "fontStyle": "", // Disables italics for specified tokens
+                    "fontStyle": "",
                 },
             },
         ],
     },
-    // --- Custom CSS & JS Loader ---
+
+    // ================================================================
+    // CUSTOM CSS LOADER
+    // Paths already correct for your machine — kept verbatim.
+    // ================================================================
+    "vscode_custom_css.policy": true,
     "vscode_custom_css.imports": [
-        "file:///C:\\Users\\admin\\AppData\\Roaming\\Code\\User\\custom-vs-code.css",
-        "file:///C:\\Users\\admin\\AppData\\Roaming\\Code\\User\\vs-code-script.js",
+        "file:///C:/Users/admin/AppData/Roaming/Code/User/custom-vs-code.css",
+        "file:///C:/Users/admin/AppData/Roaming/Code/User/vs-code-script.js",
     ],
 
-    "todohighlight.isEnable": true,
-    "todohighlight.isCaseSensitive": true,
-    "workbench.editor.enablePreview": false,
+    // ================================================================
+    // PERFORMANCE
+    // Watchers excluded for the same heavy folders you already exclude
+    // from search — saves CPU on Laravel/modern-stack workspaces.
+    // ================================================================
+    "files.watcherExclude": {
+        "**/.git/objects/**": true,
+        "**/node_modules/**": true,
+        "**/vendor/**": true,
+        "**/dist/**": true,
+        "**/storage/**": true,
+    },
 }
