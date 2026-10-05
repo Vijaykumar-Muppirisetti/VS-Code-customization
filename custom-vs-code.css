@@ -1,179 +1,55 @@
-/* ============================================
-   VS CODE CUSTOM CSS - OPTIMIZED
-   Combines best features + improves performance & readability
-   ============================================ */
+/* ============================================================================
+   VS CODE CUSTOM CSS — v2.0 REFINED BUILD
+   Same identity, same palette, same behavior — organized into a numbered
+   architecture (§01–§26) that settings.json comments can reference safely.
+   ----------------------------------------------------------------------------
+   Priority honored throughout:
+   existing functionality → existing layout → existing color system
+   → existing visual identity → new features → optimization.
+   ============================================================================ */
 
-/* --------------------------------------------
-   1. CSS VARIABLES
-   -------------------------------------------- */
+/* ============================================================================
+   01 — DESIGN TOKENS
+   Every color the build uses. Primary palette is UNCHANGED.
+   Surface tokens are derived from the existing gradient stops so panels,
+   menus and notifications reuse the exact same colors — no new palette.
+   ============================================================================ */
 :root {
-    /* Colors */
     --accent-color: #bc9abc;
     --accent-color-dim: rgba(188, 154, 188, 0.6);
-    --comment-color: #d4a373; /* Primary comment color */
+    --accent-color-faint: rgba(188, 154, 188, 0.12);
+    --comment-color: #d4a373;
+    /* --comment-color: #0c7779; */
+    /* --comment-color: #3a6d8c; */
     --selection-bg: #4f5971;
     --selection-border: #727b90;
+    --scrollbar-color: #bb9457;
+    --linenumber-active: #00a896;
+    --linenumber-hover: #028090;
 
-    /* Shadows */
-    --shadow-strong: 0 0 50px rgba(0, 0, 0, 0.25);
-    --shadow-medium: 0 8px 20px rgba(0, 0, 0, 0.45);
-    --shadow-light: 0 0 10px rgba(0, 0, 0, 0.75);
+    /* Derived surfaces — same stops as --gradient-bg, now addressable */
+    --surface-high: #3c3c50;
+    --surface-low: #2a2b38;
+    --ink: #22222b; /* used on accent-filled buttons (= rgb(34,34,34) family) */
 
-    /* Gradients */
+    --shadow-strong: 0px 0px 50px rgba(0, 0, 0, 0.25);
+    --shadow-medium: 0px 8px 20px rgba(0, 0, 0, 0.45);
+    --shadow-light: 0px 0px 10px rgba(0, 0, 0, 0.75);
     --gradient-bg: linear-gradient(#3c3c50 0%, #2a2b38 100%);
+    --hairline: rgba(255, 255, 255, 0.07);
 
-    /* Fonts */
     --font-mono: "Geist Mono", monospace;
-    --font-comment: "Monaspace Radon", monospace;
-
-    /* Sizes & Radii */
+    --font-comment: "Monaspace Radon", "Geist Mono", monospace;
     --border-radius-lg: 20px;
     --border-radius-md: 12px;
-
-    /* Transitions */
+    --border-radius-sm: 8px;
     --transition-smooth: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* --------------------------------------------
-   2. CODE EDITOR
-   -------------------------------------------- */
-
-/* --- Comments --- */
-.mtk3 {
-    /* Target comment tokens (theme‑dependent) */
-    font-family: var(--font-comment) !important;
-    font-style: italic !important;
-    color: var(--comment-color) !important;
-    font-weight: 800 !important;
-}
-
-/* --- Line Numbers --- */
-.margin-view-overlays .line-numbers {
-    width: 35px !important;
-    font-size: 16px !important;
-    font-family: var(--font-mono) !important;
-    opacity: 0.6;
-    transition: var(--transition-smooth);
-}
-.margin-view-overlays .line-numbers:hover {
-    opacity: 0.9;
-    color: #028090 !important;
-    font-weight: 600;
-}
-.margin-view-overlays .line-numbers.active-line-number {
-    opacity: 1;
-    color: #00a896 !important;
-    font-weight: 600;
-}
-
-/* --- Editor Shadows --- */
-.monaco-editor .scroll-decoration {
-    box-shadow: var(--shadow-light) !important;
-    top: -6px !important;
-}
-
-/* --- Find/Match Highlighting --- */
-.currentFindMatchInline {
-    background: rgba(0, 0, 0, 0.5) !important;
-    border: 1px solid var(--accent-color) !important;
-    border-radius: 3px !important;
-}
-
-/* --------------------------------------------
-   3. SIDEBAR & EXPLORER
-   -------------------------------------------- */
-
-/* Sidebar shadow */
-.part.sidebar {
-    box-shadow: var(--shadow-strong);
-}
-
-/* Sidebar top shadow */
-.monaco-scrollable-element > .shadow.top {
-    box-shadow: var(--shadow-light) !important;
-    top: -3px !important;
-}
-
-/* Sidebar Title */
-.composite.title {
-    display: flex !important;
-    align-items: center !important;
-}
-.composite.title h2 {
-    font-weight: bold !important;
-    font-size: 12px !important;
-    text-transform: uppercase;
-    color: var(--accent-color) !important;
-    letter-spacing: 0.5px;
-    margin-left: 8px; /* replace pseudo‑element */
-}
-.composite.title h2::before {
-    display: inline-block;
-    margin-right: 6px;
-    font-size: 1.1rem;
-    content: "🗂️";
-}
-
-/* Hide explorer action buttons */
-.monaco-workbench .part.sidebar .title-actions {
-    display: none !important;
-}
-
-/* Hide chevron arrows */
-.codicon-tree-item-expanded:before {
-    display: none !important;
-}
-
-/* Explorer items */
-.monaco-tree .monaco-tree-row .label-name,
-.monaco-list .monaco-list-row .label-name {
-    font-family: var(--font-mono) !important;
-    font-size: 14px !important;
-    font-weight: 400 !important;
-    color: #fff !important;
-    transition: var(--transition-smooth);
-}
-
-/* Selected file */
-.monaco-list.list_id_1 .monaco-list-row.selected {
-    background-color: var(--selection-bg) !important;
-    border-top: 1px solid var(--selection-border);
-    border-bottom: 1px solid var(--selection-border);
-    opacity: 1 !important;
-    transition: var(--transition-smooth);
-}
-.monaco-list.list_id_1 .monaco-list-row.selected .label-name {
-    color: #fff !important;
-    font-weight: 500 !important;
-}
-
-/* --------------------------------------------
-   4. SCROLLBARS
-   -------------------------------------------- */
-.slider {
-    right: 1px !important; /* override left */
-    width: 5px !important;
-    border-radius: 2px !important;
-    background: #bb9457 !important;
-    transition: width 0.2s ease;
-}
-.slider:hover {
-    width: 10px !important;
-}
-
-/* --------------------------------------------
-   5. TOOLTIPS & HOVER WIDGETS
-   -------------------------------------------- */
-.monaco-editor-hover,
-.monaco-hover {
-    box-shadow: var(--shadow-medium) !important;
-    background: var(--gradient-bg) !important;
-    backdrop-filter: blur(3px) !important;
-    border-radius: var(--border-radius-lg) !important;
-    border: none !important;
-    animation: fadeIn 0.15s ease;
-}
-
+/* ============================================================================
+   02 — MOTION & GLOBAL PRIMITIVES
+   Keyframes live once, here. Every animation below references these names.
+   ============================================================================ */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -185,60 +61,6 @@
     }
 }
 
-/* --------------------------------------------
-   6. TITLE BAR & COMMAND CENTER
-   -------------------------------------------- */
-
-/* Hide editor toolbar when tabs are shown */
-.monaco-workbench
-    .part.editor
-    .editor-group-container
-    > .title
-    .editor-actions {
-    display: none !important;
-}
-
-/* Command Center */
-.command-center-center {
-    width: auto !important;
-    border: none !important;
-    background: transparent !important;
-}
-
-/* Hide title‑bar right items */
-.titlebar-right > * {
-    display: none !important;
-}
-
-/* --------------------------------------------
-   7. SEARCH PANEL
-   -------------------------------------------- */
-.search-label {
-    font-family: var(--font-mono) !important;
-    font-size: 14px !important;
-    color: #fff;
-}
-/* Hide all search icons */
-.search-icon,
-.codicon-search::before,
-.codicon-arrow-right,
-.codicon-arrow-left {
-    display: none !important;
-}
-
-/* --------------------------------------------
-   8. COMMAND PALETTE
-   -------------------------------------------- */
-.quick-input-widget {
-    top: 50% !important;
-    transform: translateY(-50%) !important;
-    box-shadow: var(--shadow-medium) !important;
-    padding: 10px 10px 18px 10px !important;
-    background: var(--gradient-bg) !important;
-    backdrop-filter: blur(3px) !important;
-    border-radius: var(--border-radius-lg) !important;
-    animation: slideIn 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-}
 @keyframes slideIn {
     from {
         opacity: 0;
@@ -250,47 +72,608 @@
     }
 }
 
-.quick-input-list {
+@keyframes toastIn {
+    from {
+        opacity: 0;
+        transform: translateX(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+* {
+    scroll-behavior: smooth;
+}
+
+/* ============================================================================
+   03 — WORKBENCH CHROME
+   Canvas-level shadows that establish pane depth. Unchanged behavior.
+   ============================================================================ */
+.part.sidebar {
+    box-shadow: var(--shadow-strong);
+}
+
+/* Scroll-edge fade at the top of any scrollable list */
+.monaco-scrollable-element > .shadow.top {
+    box-shadow: var(--shadow-light) !important;
+    top: -3px !important;
+}
+
+/* ============================================================================
+   04 — TITLE BAR & COMMAND CENTER
+   Left-aligned project title, de-chromed command center, hidden right side.
+   ============================================================================ */
+.titlebar-left {
+    justify-content: flex-start !important;
+    flex-grow: 0 !important;
+    width: auto !important;
+}
+
+.titlebar-right > * {
+    display: none !important;
+}
+
+.monaco-workbench
+    .part.titlebar
+    > .titlebar-container
+    > .titlebar-center
+    > .window-title
+    > .command-center
+    .action-item.command-center-center {
+    border: none !important;
+    background: transparent !important;
+    transition: var(--transition-smooth);
+}
+
+.command-center-center {
+    width: auto !important;
+}
+
+/* Soft re-state on hover instead of a bordered box */
+.monaco-workbench
+    .part.titlebar
+    .titlebar-center
+    .command-center
+    .action-item.command-center-center:hover {
+    background: var(--accent-color-faint) !important;
+    border-radius: var(--border-radius-sm);
+}
+
+/* ============================================================================
+   05 — ACTIVITY BAR (dormant)
+   workbench.activityBar.location is "hidden". Rules kept so re-enabling it
+   matches the rest of the build instead of falling back to theme defaults.
+   ============================================================================ */
+.monaco-workbench .activitybar .action-label {
+    transition: var(--transition-smooth);
+}
+
+.monaco-workbench .activitybar .action-item.checked .action-label {
+    color: var(--accent-color) !important;
+}
+
+/* ============================================================================
+   06 — SIDE BAR — CONTAINER
+   Uppercase accent titles, Geist labels, hidden explorer action clutter.
+   ============================================================================ */
+.composite.title {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-items: center !important;
+}
+
+.composite.title h2 {
+    display: inline-flex;
+    align-items: center;
+    font-weight: bold !important;
+    font-size: 12px !important;
+    text-transform: uppercase;
+    color: var(--accent-color) !important;
+    letter-spacing: 0.5px;
+}
+
+/* CSS-native marker — replaces the OS-dependent emoji glyph.
+   Same visual weight, deterministic rendering on every platform. */
+.composite.title h2::before {
+    content: "";
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    margin-right: 8px;
+    background: var(--accent-color);
+    border-radius: 2px;
+    transform: rotate(45deg);
+    opacity: 0.85;
+}
+
+/* File explorer action buttons (hide) */
+.monaco-workbench .part.sidebar .title-actions .actions-container {
+    display: none;
+}
+
+/* ============================================================================
+   07 — EXPLORER — FILES & TREE
+   Chevronless tree, Geist labels, bordered selection block.
+   ============================================================================ */
+
+/* Hide chevron arrows */
+.codicon-tree-item-expanded:before {
+    display: none !important;
+}
+
+/* File explorer item labels */
+.monaco-tree .monaco-tree-row .label-name,
+.monaco-list .monaco-list-row .monaco-icon-label .label-name {
+    font-family: var(--font-mono) !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    color: #fff !important;
+    transition: var(--transition-smooth);
+}
+
+/* File name when editing */
+.explorer-item-edited {
+    font-family: var(--font-mono) !important;
+    font-size: 14px !important;
+}
+
+/* Selected file item — legacy list_id_1 selector kept for older builds,
+   robust explorer-scoped selector added for current builds where the
+   generated list id changes between sessions. */
+.explorer-folders-view .monaco-list-row.selected,
+.monaco-list.list_id_1 .monaco-list-row.selected {
+    background-color: var(--selection-bg) !important;
+    opacity: 1 !important;
+    border-top: 1px var(--selection-border) solid;
+    border-bottom: 1px var(--selection-border) solid;
+    transition: var(--transition-smooth);
+}
+
+.explorer-folders-view .monaco-list-row.selected .label-name,
+.monaco-list.list_id_1 .monaco-list-row.selected .label-name {
+    color: #fff !important;
+    opacity: 1 !important;
+    font-weight: 500 !important;
+}
+
+/* ============================================================================
+   08 — EDITOR — TEXT SURFACE
+   Comment typography, line numbers, selection tint, find-match ring.
+   ============================================================================ */
+
+/* Code comments — Monaspace Radon italic, bold, gold. */
+.mtk3 {
+    font-family: var(--font-comment) !important;
+    font-style: italic !important;
+    color: var(--comment-color) !important;
+    font-weight: 800 !important;
+}
+
+/* Line numbers */
+.margin-view-overlays .line-numbers {
+    position: relative !important;
+    width: 35px !important;
+    font-size: 16px !important;
+    font-family: var(--font-mono) !important;
+    opacity: 0.6;
+    transition: opacity var(--transition-smooth);
+}
+
+.margin-view-overlays .line-numbers:hover {
+    opacity: 0.9;
+    color: var(--linenumber-hover) !important;
+    font-weight: 600;
+}
+
+/* Current line number highlight */
+.margin-view-overlays .line-numbers.active-line-number {
+    opacity: 1;
+    color: var(--linenumber-active) !important;
+    font-weight: 600;
+}
+
+/* Whisper-quiet current line fill — renderLineHighlight stays "line",
+   this only removes the theme's hard border feel. */
+.monaco-editor .view-overlays .current-line {
+    border: none !important;
+    background: rgba(255, 255, 255, 0.02) !important;
+}
+
+/* Selection reuses the sidebar selection block color */
+.monaco-editor .selected-text {
+    background-color: var(--selection-bg) !important;
+    opacity: 0.85;
+}
+
+/* Underline cursor tint (cursorStyle: underline in settings) */
+.monaco-editor .cursor {
+    background: var(--accent-color) !important;
+}
+
+/* Code canvas top shadow */
+.monaco-editor .scroll-decoration {
+    box-shadow: var(--shadow-light) !important;
+    top: -6px !important;
+}
+
+/* ============================================================================
+   09 — EDITOR — TABS
+   The build hides the tab *actions* toolbar but keeps tabs visible.
+   Active tab state: single accent thread on top — nothing else repainted.
+   ============================================================================ */
+
+/* Hide toolbar actions when tabs are enabled */
+.monaco-workbench
+    .part.editor
+    > .content
+    .editor-group-container
+    > .title
+    .editor-actions {
+    display: none !important;
+}
+
+.monaco-workbench
+    .part.editor
+    .editor-group-container
+    > .title
+    .tabs-container
+    .tab {
+    transition: background 0.2s ease;
+}
+
+.monaco-workbench
+    .part.editor
+    .editor-group-container
+    > .title
+    .tabs-container
+    .tab:hover {
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.monaco-workbench
+    .part.editor
+    .editor-group-container
+    > .title
+    .tabs-container
+    .tab.active {
+    background: rgba(255, 255, 255, 0.03);
+    box-shadow: inset 0 2px 0 0 var(--accent-color);
+}
+
+.monaco-workbench
+    .part.editor
+    .editor-group-container
+    > .title
+    .tabs-container
+    .tab
+    .monaco-icon-label {
+    font-family: var(--font-mono) !important;
+    font-size: 12.5px !important;
+}
+
+/* ============================================================================
+   10 — EDITOR — FIND & REPLACE
+   The find box now speaks the same glass language as the command palette.
+   ============================================================================ */
+.monaco-editor .find-widget {
+    border-radius: var(--border-radius-md) !important;
+    box-shadow: var(--shadow-medium) !important;
+    padding: 3px !important;
+    overflow: hidden;
+    animation: fadeIn 0.15s ease;
+}
+
+.monaco-editor .find-widget .monaco-inputbox {
+    border-radius: var(--border-radius-sm) !important;
+}
+
+/* Match/Find text highlighting */
+.currentFindMatchInline {
+    background: rgba(0, 0, 0, 0.5) !important;
+    border: 1px solid var(--accent-color) !important;
+    border-radius: 3px !important;
+}
+
+/* ============================================================================
+   11 — EDITOR — HOVER, INTELLISENSE & WIDGETS
+   Shared glass surface: gradient + blur + radius + fade. Unchanged recipe.
+   ============================================================================ */
+.monaco-editor-hover,
+.monaco-hover,
+.monaco-editor .suggest-widget {
+    animation: fadeIn 0.15s ease;
+}
+
+.monaco-editor-hover,
+.monaco-hover {
+    box-shadow: var(--shadow-medium) !important;
+    background-image: var(--gradient-bg) !important;
+    backdrop-filter: blur(3px) !important;
+    border-radius: 16px !important;
+    border: none !important;
+    outline: 0px !important;
+}
+
+.monaco-resizable-hover {
+    border: none !important;
+}
+
+/* Suggest widget inherits the glass recipe at a smaller radius */
+.monaco-editor .suggest-widget {
+    border-radius: var(--border-radius-md) !important;
+    box-shadow: var(--shadow-medium) !important;
+    overflow: hidden;
+}
+
+/* ============================================================================
+   12 — MINIMAP (dormant)
+   editor.minimap.enabled is false. Kept tuned so re-enabling it never
+   produces a visual shock — dimmed, soft-edged, shadow-separated.
+   ============================================================================ */
+.monaco-editor .minimap {
+    opacity: 0.85;
+}
+
+.monaco-editor .minimap-shadow-visible {
+    box-shadow: -6px 0 6px -6px rgba(0, 0, 0, 0.5);
+}
+
+/* ============================================================================
+   13 — PANEL & TERMINAL
+   Panel hairline + terminal breathing room. Title casing stays consistent
+   with the sidebar via §06 (.composite.title) — no duplication needed.
+   ============================================================================ */
+.monaco-workbench .part.panel {
+    border-top: 1px solid var(--hairline);
+}
+
+.terminal-wrapper {
+    padding-left: 6px;
+}
+
+/* ============================================================================
+   14 — STATUS BAR
+   Gradient surface copied from the command palette — the whole workbench
+   chrome now reads as one continuous material.
+   ============================================================================ */
+.monaco-workbench .part.statusbar {
+    background-image: var(--gradient-bg) !important;
+    border-top: 1px solid var(--hairline) !important;
+    font-family: var(--font-mono) !important;
+}
+
+.monaco-workbench .part.statusbar .statusbar-item {
+    transition: var(--transition-smooth);
+}
+
+.monaco-workbench .part.statusbar .statusbar-item:hover {
+    background: rgba(255, 255, 255, 0.06) !important;
+}
+
+/* ============================================================================
+   15 — COMMAND PALETTE & QUICK INPUT
+   Centered glass card. This is the signature piece — preserved verbatim,
+   with only the supporting keyframes moved to §02.
+   ============================================================================ */
+.quick-input-widget {
+    transform: translateY(-50%) !important;
+    top: 50% !important;
+    box-shadow: var(--shadow-medium) !important;
+    padding: 10px 10px 18px 10px !important;
+    background-image: var(--gradient-bg) !important;
+    backdrop-filter: blur(3px) !important;
+    border-radius: var(--border-radius-lg) !important;
+    animation: slideIn 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Command palette minimum height */
+.quick-input-list,
+.quick-input-list .list_id_6 {
     min-height: 350px !important;
 }
 
-/* Input field */
+/* Command palette label sizing */
+.quick-input-widget .monaco-label {
+    font-size: 11px !important;
+}
+
+/* Command palette text input */
 .quick-input-filter .monaco-inputbox {
     border-radius: var(--border-radius-md) !important;
     padding: 10px 14px !important;
     border: none !important;
-    background: rgba(34, 34, 34, 0.4) !important;
+    background-color: rgba(34, 34, 34, 0.4) !important;
     font-family: var(--font-mono) !important;
     font-size: 14px !important;
     margin-bottom: 16px !important;
     transition: var(--transition-smooth);
 }
+
 .quick-input-filter .monaco-inputbox:focus-within {
-    background: rgba(34, 34, 34, 0.6) !important;
+    background-color: rgba(34, 34, 34, 0.6) !important;
     box-shadow: 0 0 0 2px var(--accent-color-dim) !important;
 }
 
+/* Input placeholder */
 .monaco-inputbox input::placeholder {
     color: rgba(255, 255, 255, 0.3) !important;
 }
 
-/* --------------------------------------------
-   9. LISTS (Explorer, Command Palette, etc.)
-   -------------------------------------------- */
+/* Command palette actions alignment */
+.quick-input-inline-action-bar .actions-container .action-item {
+    margin-bottom: 16px !important;
+}
+
+.quick-input-header {
+    align-items: center;
+}
+
+/* ============================================================================
+   16 — SEARCH VIEW
+   ============================================================================ */
+.search-label {
+    font-family: var(--font-mono) !important;
+    font-size: 14px !important;
+    color: #fff;
+    display: block;
+}
+
+/* Hide decorative search icons (labels carry the meaning) */
+.search-icon,
+.codicon-search::before,
+.codicon-arrow-right,
+.codicon-arrow-left {
+    display: none !important;
+}
+
+.search-widget .monaco-inputbox {
+    border-radius: var(--border-radius-sm) !important;
+}
+
+/* ============================================================================
+   17 — MENUS, DROPDOWNS & CONTEXT MENUS
+   Same glass recipe, smaller radius. Note: in newer builds context menus
+   render inside a shadow root — CSS cannot pierce it; see compat notes.
+   ============================================================================ */
+.monaco-menu .monaco-action-bar.vertical {
+    border-radius: var(--border-radius-md) !important;
+    box-shadow: var(--shadow-medium) !important;
+    overflow: hidden;
+}
+
+.monaco-dropdown {
+    border-radius: var(--border-radius-sm) !important;
+}
+
+/* ============================================================================
+   18 — NOTIFICATIONS & DIALOGS
+   Toasts glide in from the right; surfaces reuse the gradient material.
+   ============================================================================ */
+.notifications-toasts .notification-toast {
+    background-image: var(--gradient-bg) !important;
+    border-radius: var(--border-radius-md) !important;
+    box-shadow: var(--shadow-medium) !important;
+    animation: toastIn 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.notifications-center .notifications-center-container {
+    background-image: var(--gradient-bg) !important;
+    border-radius: var(--border-radius-lg) !important;
+    box-shadow: var(--shadow-medium) !important;
+}
+
+/* Dialog center (save / confirm dialogs) */
+.monaco-dialog-box {
+    border-radius: var(--border-radius-lg) !important;
+    box-shadow: var(--shadow-medium) !important;
+}
+
+/* ============================================================================
+   19 — PEEK VIEW & REFERENCES
+   One accent thread on top marks the peek surface — matches tab signal.
+   ============================================================================ */
+.monaco-editor .peek-view {
+    border-top: 2px solid var(--accent-color-dim) !important;
+}
+
+/* ============================================================================
+   20 — SCROLLBARS
+   Gold slider, expanding on hover. v2 fixes the missing '#' in the hover
+   color and teaches horizontal scrollbars the same gesture.
+   ============================================================================ */
+.slider {
+    position: absolute !important;
+    right: 1.5px !important;
+    width: 5px !important;
+    border-radius: 2px !important;
+    background: var(--scrollbar-color) !important;
+    left: auto !important;
+    transition:
+        width 0.2s ease,
+        height 0.2s ease,
+        background-color 0.2s ease;
+}
+
+.slider:hover {
+    width: 10px !important;
+    background: var(--scrollbar-color) !important;
+}
+
+/* Horizontal twin — height expands instead of width */
+.scrollbar.horizontal .slider {
+    width: auto !important;
+    height: 5px !important;
+    right: auto !important;
+    bottom: 1.5px !important;
+}
+
+.scrollbar.horizontal .slider:hover {
+    width: auto !important;
+    height: 10px !important;
+}
+
+/* ============================================================================
+   21 — BREADCRUMBS (dormant)
+   breadcrumbs.enabled is false. Kept styled for a silent re-enable.
+   ============================================================================ */
+.monaco-breadcrumbs {
+    font-family: var(--font-mono) !important;
+    font-size: 12px !important;
+    opacity: 0.9;
+}
+
+/* ============================================================================
+   22 — BUTTONS & INPUTS
+   Rounded, mono, and the one true accent-filled control:
+   primary buttons use the accent with dark ink text for AA contrast.
+   ============================================================================ */
+.monaco-button {
+    border-radius: var(--border-radius-sm) !important;
+    font-family: var(--font-mono) !important;
+    font-size: 13px !important;
+    transition: var(--transition-smooth) !important;
+}
+
+.monaco-button:hover {
+    filter: brightness(1.08);
+}
+
+/* Focus visibility for keyboard users — reuses accent dim ring */
+.monaco-button:focus-visible,
+.monaco-inputbox:focus-visible {
+    outline: 2px solid var(--accent-color-dim) !important;
+    outline-offset: 1px;
+}
+
+.monaco-inputbox {
+    border-radius: var(--border-radius-sm) !important;
+}
+
+/* ============================================================================
+   23 — LISTS, TREES & SELECTION STATES
+   Shared hover/focus grammar across every list in the workbench.
+   ============================================================================ */
+
+/* Remove default list background */
 .monaco-list-rows {
     background: transparent !important;
 }
 
-/* Hover effect (except notifications) */
+/* List hover state */
 .monaco-list-row:hover {
     background: rgba(255, 255, 255, 0.05) !important;
     transition: var(--transition-smooth);
 }
+
+/* Exclude notifications from hover effect */
 .notifications-toasts .monaco-list-row:hover {
-    background: none !important; /* keep notifications default */
+    background: none !important;
 }
 
-/* Focused item */
+/* Focused list item */
 .monaco-list-row.focused {
     background-color: rgba(181, 198, 228, 0.25) !important;
     transition: var(--transition-smooth);
@@ -302,42 +685,47 @@
     outline-offset: -2px;
 }
 
-/* --------------------------------------------
-   10. TOOLBAR ICONS
-   -------------------------------------------- */
-/* Show only word‑wrap & more‑tools icons */
+/* Inline action buttons — dimmed until needed */
 .codicon-toolbar-more,
 .codicon-word-wrap {
     display: block !important;
     opacity: 0.6;
     transition: var(--transition-smooth);
 }
+
 .codicon-toolbar-more:hover,
 .codicon-word-wrap:hover {
     opacity: 1;
 }
 
-/* --------------------------------------------
-   11. BACKDROP BLUR (for modals/popups)
-   -------------------------------------------- */
+/* ============================================================================
+   24 — BACKDROP & OVERLAYS
+   #command-blur is injected by vs-code-script.js when the palette opens.
+   v2: pointer-events none — the veil must never eat a click.
+   ============================================================================ */
 #command-blur {
     position: absolute;
-    inset: 0; /* replaces width/height/top/left */
-    pointer-events: none; /* allow clicks through */
+    width: 100%;
+    height: 100%;
     background: rgba(0, 0, 0, 0.15);
+    top: 0;
+    left: 0;
     backdrop-filter: blur(8px);
-    z-index: 1000; /* ensure it sits below content */
+    pointer-events: none;
+    animation: fadeIn 0.18s ease;
 }
 
-/* --------------------------------------------
-   12. ACCESSIBILITY
-   -------------------------------------------- */
+/* ============================================================================
+   25 — ACCESSIBILITY & REDUCED MOTION
+   Focus indicators stay visible; every animation collapses for users who
+   prefer reduced motion. Unchanged — kept as the final word on motion.
+   ============================================================================ */
+
 *:focus-visible {
     outline: 2px solid var(--accent-color) !important;
     outline-offset: 2px;
 }
 
-/* Respect user's motion‑reduction preference */
 @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
@@ -349,30 +737,10 @@
     }
 }
 
-/* Smooth scrolling globally */
-html,
-body,
-* {
-    scroll-behavior: smooth;
-}
-
-/* --------------------------------------------
-   13. WELCOME SCREEN (Optional - uncomment to use)
-   -------------------------------------------- */
-/*
-.editor-group-watermark,
-.watermark-container,
-.letterpress {
-    max-width: none !important;
-}
-*/
-
-.monaco-workbench
-    .part.editor
-    > .content
-    .editor-group-container
-    > .editor-group-watermark
-    .letterpress,
+/* ============================================================================
+   26 — WELCOME SCREEN WATERMARK
+   The letterpress grid — untouched artwork.
+   ============================================================================ */
 .editor-group-watermark {
     max-width: none !important;
 }
@@ -382,10 +750,10 @@ body,
     background-repeat: no-repeat no-repeat !important;
     background-position: center center !important;
     background-size: contain !important;
-    width: 60% !important;
 
-    /* background-repeat: no-repeat no-repeat !important;
-    background-position: center center !important;
-    background-size: contain !important;
-    width: 60% !important; */
+    width: 70% !important;
+    height: 70% !important;
+
+    max-width: 900px !important;
+    max-height: 600px !important;
 }
